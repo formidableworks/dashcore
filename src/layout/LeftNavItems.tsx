@@ -3,6 +3,7 @@ import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { Box, IconButton, Tooltip } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { BreakpointIndicator } from './BreakpointIndicator';
 import { OrderShellButtonMenu } from './OrderShellButtonMenu';
 import { ThemeButtonMenu } from './themeButtonMenu';
 
@@ -33,6 +34,8 @@ export function LeftNavItems(): JSX.Element {
       </Tooltip>
 
       <Box sx={{ flexGrow: 1 }} />
+
+      <BreakpointIndicator />
 
       <ThemeButtonMenu />
 
