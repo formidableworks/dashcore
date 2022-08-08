@@ -1,12 +1,12 @@
 import { Box } from '@mui/material';
-import { MGrid } from './MGrid';
+import { OrderOneMuiGrid } from './OrderOneMuiGrid';
 import { OrderControls } from './OrderControls/OrderControls';
 
-export function OrderOne(): JSX.Element {
+export function OrderOneRoot(): JSX.Element {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       <OrderControls />
-      <MGrid />
+      <OrderOneMuiGrid />
     </Box>
   );
 }

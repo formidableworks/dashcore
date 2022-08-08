@@ -5,7 +5,7 @@ import { Box, IconButton, Tooltip } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { BreakpointIndicator } from './BreakpointIndicator';
 import { OrderShellButtonMenu } from './OrderShellButtonMenu';
-import { ThemeButtonMenu } from './themeButtonMenu';
+import { ThemeButtonMenu } from './ThemeButtonMenu';
 
 export function LeftNavItems(): JSX.Element {
   return (

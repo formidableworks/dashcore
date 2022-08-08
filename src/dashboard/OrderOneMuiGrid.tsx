@@ -6,7 +6,7 @@ const sxStyles: Record<string, SxProps<Theme>> = {
   paper: { padding: 1, border: 1, borderRadius: 1, borderColor: (t) => t.palette.divider },
 };
 
-export function MGrid(): JSX.Element {
+export function OrderOneMuiGrid(): JSX.Element {
   return (
     <Grid container sx={{ pl: 1, pr: 1, mb: 4 }} spacing={1}>
       {/* ORDER DETAILS */}
