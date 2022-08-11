@@ -2,6 +2,7 @@ import { Theme, Grid, Paper, SxProps, Typography } from '@mui/material';
 import { DeliveryConfigRoot } from './DeliveryConfigRoot';
 import { FieldMock } from './FieldMock';
 import { GridIndicator } from './GridIndicator';
+import { ResponsiveCard } from './ResponsiveCard';
 
 const sxStyles: Record<string, SxProps<Theme>> = {
   paper: { padding: 1, border: 1, borderRadius: 1, borderColor: (t) => t.palette.divider },
@@ -83,7 +84,12 @@ export function OrderTwoMuiGrid(): JSX.Element {
           </Grid>
         </Paper>
       </Grid>
-      <DeliveryConfigRoot />
+      <ResponsiveCard xs={12} sm={12} md={12} lg={6} xl={6}>
+        <DeliveryConfigRoot />
+      </ResponsiveCard>
+      <ResponsiveCard xs={12} sm={12} md={12} lg={6} xl={6}>
+        <DeliveryConfigRoot />
+      </ResponsiveCard>
     </Grid>
   );
 }

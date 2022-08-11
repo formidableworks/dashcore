@@ -6,7 +6,6 @@ export function OrderTwoRoot(): JSX.Element {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       <OrderControls />
-      <div>ZE JSON</div>
       <OrderTwoMuiGrid />
     </Box>
   );
