@@ -56,10 +56,10 @@ export function KeyboardShortcuts(): JSX.Element {
             <ListItemText
               primary="Auto complete"
               secondary={
-                <Box sx={{ display: 'flex', gap: 1 }}>
-                  <Chip variant="outlined" size="small" label="ctrl" />
+                <Box component="span" sx={{ display: 'flex', gap: 1 }}>
+                  <Chip component="span" variant="outlined" size="small" label="ctrl" />
                   +
-                  <Chip variant="outlined" size="small" label="space" />
+                  <Chip component="span" variant="outlined" size="small" label="space" />
                 </Box>
               }
             />
@@ -68,10 +68,10 @@ export function KeyboardShortcuts(): JSX.Element {
             <ListItemText
               primary="Copy"
               secondary={
-                <Box sx={{ display: 'flex', gap: 1 }}>
-                  <Chip variant="outlined" size="small" label="ctrl" />
+                <Box component="span" sx={{ display: 'flex', gap: 1 }}>
+                  <Chip component="span" variant="outlined" size="small" label="ctrl" />
                   +
-                  <Chip variant="outlined" size="small" label="c" />
+                  <Chip component="span" variant="outlined" size="small" label="c" />
                 </Box>
               }
             />
@@ -80,10 +80,10 @@ export function KeyboardShortcuts(): JSX.Element {
             <ListItemText
               primary="Paste"
               secondary={
-                <Box sx={{ display: 'flex', gap: 1 }}>
-                  <Chip variant="outlined" size="small" label="ctrl" />
+                <Box component="span" sx={{ display: 'flex', gap: 1 }}>
+                  <Chip component="span" variant="outlined" size="small" label="ctrl" />
                   +
-                  <Chip variant="outlined" size="small" label="v" />
+                  <Chip component="span" variant="outlined" size="small" label="v" />
                 </Box>
               }
             />
@@ -92,12 +92,12 @@ export function KeyboardShortcuts(): JSX.Element {
             <ListItemText
               primary="Format"
               secondary={
-                <Box sx={{ display: 'flex', gap: 1 }}>
-                  <Chip variant="outlined" size="small" label="ctrl" />
+                <Box component="span" sx={{ display: 'flex', gap: 1 }}>
+                  <Chip component="span" variant="outlined" size="small" label="ctrl" />
                   +
-                  <Chip variant="outlined" size="small" label="shift" />
+                  <Chip component="span" variant="outlined" size="small" label="shift" />
                   +
-                  <Chip variant="outlined" size="small" label="i" />
+                  <Chip component="span" variant="outlined" size="small" label="i" />
                 </Box>
               }
             />
@@ -106,8 +106,8 @@ export function KeyboardShortcuts(): JSX.Element {
             <ListItemText
               primary="Command palette"
               secondary={
-                <Box sx={{ display: 'flex', gap: 1 }}>
-                  <Chip variant="outlined" size="small" label="f1" />
+                <Box component="span" sx={{ display: 'flex', gap: 1 }}>
+                  <Chip component="span" variant="outlined" size="small" label="f1" />
                 </Box>
               }
             />
