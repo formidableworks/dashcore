@@ -6,11 +6,12 @@ import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
 import JsonWorker from 'monaco-editor/esm/vs/language/json/json.worker?worker';
 import { useEffect, useRef, useState } from 'react';
 import { DeliveryConfigToolbar } from '../../dashboard/DeliveryConfigToolbar';
+import { configureMonaco, SchemaMatcher, schemaMatchers } from './config/monacoConfig';
 import { ConfirmDialog } from './ConfirmDialog';
-import { deliveryConfigMonacoSchema } from './DeliveryConfigSchema';
 import { IssuesIndicator } from './IssuesIndicator';
 import { KeyboardShortcuts } from './KeyboardShortcuts';
-import { cobaltTheme } from './monacoThemes';
+
+configureMonaco();
 
 // expose types from namespace.
 type IStandaloneCodeEditor = editorApi.IStandaloneCodeEditor;
@@ -71,9 +72,10 @@ const StatusBar = styled(Grid, {
 interface Props {
   value: string;
   onSave: (value: string) => void;
+  editorPath: SchemaMatcher;
 }
 export function JsonEditorRoot(props: Props): JSX.Element {
-  const { value, onSave } = props;
+  const { value, onSave, editorPath } = props;
   const [editorValue, setEditorValue] = useState<string | undefined>(value);
   const [isFocused, setFocused] = useState(false);
   const [isConfirmDialogOpen, setConfirmDialogOpen] = useState(false);
@@ -86,20 +88,14 @@ export function JsonEditorRoot(props: Props): JSX.Element {
     setEditorValue(value);
   }, [value]);
 
-  const editorOnMount = (editor: IStandaloneCodeEditor, monaco: Monaco) => {
+  const editorOnMount = (editor: IStandaloneCodeEditor /* monaco: Monaco */) => {
+    // set ref so editor can be accessed by event handlers.
     editorRef.current = editor;
     // set tabSize to 2 spaces.
     editor.getModel()?.updateOptions({ tabSize: 2 });
-    // enable monaco's json schema features.
-    monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
-      schemas: [deliveryConfigMonacoSchema],
-      validate: true,
-    });
     // use monaco's focus/blur listeners to set isFocused appropriately.
     editor.onDidFocusEditorText(() => setFocused(true));
     editor.onDidBlurEditorText(() => setFocused(false));
-    // add cobalt theme (closer match to dark theme).
-    monaco.editor.defineTheme('cobalt', cobaltTheme);
   };
 
   const handleFormat = () => {
@@ -138,6 +134,7 @@ export function JsonEditorRoot(props: Props): JSX.Element {
           value={editorValue}
           onChange={(val) => setEditorValue(val)}
           onValidate={handleValidate}
+          path={schemaMatchers[editorPath]}
         />
       </EditorWrapper>
       <StatusBar item columns={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 12 }} isFocused={isFocused}>
