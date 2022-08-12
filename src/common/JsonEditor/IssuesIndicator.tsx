@@ -6,7 +6,6 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  ListSubheader,
   Popover,
   Tooltip,
   Typography,
@@ -14,11 +13,11 @@ import {
 import { editor as editorApi, MarkerSeverity } from 'monaco-editor/esm/vs/editor/editor.api';
 import { useState } from 'react';
 
-import ErrorIcon from '@mui/icons-material/Error';
-import NotesIcon from '@mui/icons-material/Notes';
-import InfoIcon from '@mui/icons-material/Info';
-import WarningIcon from '@mui/icons-material/Warning';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ErrorIcon from '@mui/icons-material/Error';
+import InfoIcon from '@mui/icons-material/Info';
+import NotesIcon from '@mui/icons-material/Notes';
+import WarningIcon from '@mui/icons-material/Warning';
 
 interface Props {
   markers: editorApi.IMarker[];
@@ -60,7 +59,7 @@ export function IssuesIndicator(props: Props): JSX.Element {
           horizontal: 'left',
         }}
       >
-        <List>
+        <List dense>
           <Typography sx={{ m: 1, color: 'text.primary' }} variant="subtitle2">
             {`${markers.length} ${markers.length === 1 ? 'issue' : 'issues'}`}
           </Typography>

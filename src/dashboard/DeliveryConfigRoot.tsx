@@ -8,7 +8,27 @@ export function DeliveryConfigRoot(): JSX.Element {
         <Typography variant="h5">Delivery Config</Typography>
       </Grid>
       {/* NOTE: JsonEditorRoot will emit multiple grid items. */}
-      <JsonEditorRoot />
+      <JsonEditorRoot
+        value={`
+          {
+            "signature_required": "yes indeed", "customer_id": "1235339", "service_tier": "invalid enum val",
+            "address": {
+              "addressee": "Stringer Bell",
+              "premise_identifier": "Barksdale towers",
+            },
+            "handling_tags": [
+              "fragile",
+              "fragile"
+            ],
+            "dimensions": {
+              "width": -1,
+              "height": 4,
+              "depth": 1000
+            }
+          }
+          `}
+        onSave={(val) => console.log('DeliveryConfigRoot json put', val)}
+      />
     </Grid>
   );
 }
