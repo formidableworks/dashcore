@@ -3,6 +3,7 @@ import { DeliveryConfigRoot } from './DeliveryConfigRoot';
 import { FieldMock } from './FieldMock';
 import { GridIndicator } from './GridIndicator';
 import { ResponsiveCard } from './ResponsiveCard';
+import { TrackingConfigRoot } from './TrackingConfigRoot';
 
 const sxStyles: Record<string, SxProps<Theme>> = {
   paper: { padding: 1, border: 1, borderRadius: 1, borderColor: (t) => t.palette.divider },
@@ -88,7 +89,7 @@ export function OrderTwoMuiGrid(): JSX.Element {
         <DeliveryConfigRoot />
       </ResponsiveCard>
       <ResponsiveCard xs={12} sm={12} md={12} lg={6} xl={6}>
-        <DeliveryConfigRoot />
+        <TrackingConfigRoot />
       </ResponsiveCard>
     </Grid>
   );

@@ -1,8 +1,8 @@
-import { Description } from '@mui/icons-material';
 import { JSONSchema7 } from 'json-schema';
 
-const deliveryConfigJsonSchema: JSONSchema7 = {
+export const deliveryConfigJsonSchema: JSONSchema7 = {
   title: 'delivery config',
+
   description: 'All informational data required to complete a delivery.',
   type: 'object',
   properties: {
@@ -58,10 +58,4 @@ const deliveryConfigJsonSchema: JSONSchema7 = {
     },
   },
   required: ['customer_id', 'address', 'service_tier'],
-};
-
-export const deliveryConfigMonacoSchema = {
-  uri: 'http://myserver/foo-schema.json',
-  fileMatch: ['*'],
-  schema: deliveryConfigJsonSchema,
 };
