@@ -12,7 +12,10 @@ import { AppTheme } from './layout/AppTheme';
 import { worker } from './mocks/browser';
 import { store } from './redux/store';
 
-worker.start({ onUnhandledRequest: 'bypass' });
+worker.start({
+  onUnhandledRequest: 'bypass',
+  serviceWorker: { url: `${import.meta.env.BASE_URL}mockServiceWorker.js` },
+});
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
