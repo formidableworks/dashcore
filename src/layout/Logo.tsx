@@ -1,4 +1,3 @@
-import FoodBankIcon from '@mui/icons-material/FoodBank';
 import OfflineBoltIcon from '@mui/icons-material/OfflineBolt';
 import { Box, Tooltip } from '@mui/material';
 

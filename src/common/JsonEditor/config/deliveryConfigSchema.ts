@@ -32,6 +32,7 @@ export const deliveryConfigJsonSchema: JSONSchema7 = {
         post_town: { type: 'string', description: 'postal town' },
         postcode: {
           type: 'string',
+          pattern: '^[A-Z0-9_-]+$',
           description:
             'The UK postcode consists of five to seven alphanumeric characters which was created by Royal Mail. A full postcode designates an area with multiple addresses or a single delivery point.',
         },

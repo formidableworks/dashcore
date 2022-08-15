@@ -1,4 +1,4 @@
-import Editor, { loader, Monaco, OnValidate } from '@monaco-editor/react';
+import Editor, { loader, OnValidate } from '@monaco-editor/react';
 import { Grid, GridProps, styled, useTheme } from '@mui/material';
 import * as monacoEditor from 'monaco-editor';
 import { editor as editorApi } from 'monaco-editor/esm/vs/editor/editor.api';
@@ -70,7 +70,7 @@ const StatusBar = styled(Grid, {
 }));
 
 interface Props {
-  value: string;
+  value: string | undefined;
   onSave: (value: string) => void;
   editorPath: SchemaMatcher;
 }
@@ -115,6 +115,7 @@ export function JsonEditorRoot(props: Props): JSX.Element {
       endColumn: marker.endColumn,
     });
     editorRef.current?.revealLine(marker.startLineNumber);
+    editorRef.current?.focus();
   };
 
   return (
@@ -144,7 +145,7 @@ export function JsonEditorRoot(props: Props): JSX.Element {
       <ConfirmDialog
         isOpen={isConfirmDialogOpen}
         onClose={() => setConfirmDialogOpen(false)}
-        originalValue={value}
+        originalValue={value ?? ''}
         modifiedValue={editorValue}
         onConfirm={() => {
           onSave(editorValue ?? '');

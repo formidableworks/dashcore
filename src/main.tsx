@@ -9,7 +9,10 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { App } from './App';
 import { AppTheme } from './layout/AppTheme';
+import { worker } from './mocks/browser';
 import { store } from './redux/store';
+
+worker.start({ onUnhandledRequest: 'bypass' });
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

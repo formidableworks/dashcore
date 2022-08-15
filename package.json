@@ -23,6 +23,7 @@
     "@reduxjs/toolkit": "^1.8.3",
     "@types/json-schema": "^7.0.11",
     "monaco-editor": "^0.34.0",
+    "msw": "^0.44.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
@@ -44,5 +45,8 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "typescript": "^4.6.4",
     "vite": "^3.0.0"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

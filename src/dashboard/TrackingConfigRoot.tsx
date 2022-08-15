@@ -1,7 +1,17 @@
 import { Grid, Typography } from '@mui/material';
 import { JsonEditorRoot } from '../common/JsonEditor/JsonEditorRoot';
+import {
+  useGetTrackingConfigQuery,
+  useUpdateTrackingConfigMutation,
+} from '../redux/api/trackingConfigApi';
 
 export function TrackingConfigRoot(): JSX.Element {
+  const { jsonString } = useGetTrackingConfigQuery(undefined, {
+    selectFromResult: (result) => ({ jsonString: result.data?.value, ...result }),
+  });
+
+  const [updateTrigger] = useUpdateTrackingConfigMutation();
+
   return (
     <Grid container>
       <Grid item>
@@ -9,25 +19,8 @@ export function TrackingConfigRoot(): JSX.Element {
       </Grid>
       {/* NOTE: JsonEditorRoot will emit multiple grid items. */}
       <JsonEditorRoot
-        value={`
-          {
-            "signature_required": "yes indeed", "customer_id": "1235339", "service_tier": "invalid enum val",
-            "address": {
-              "addressee": "Stringer Bell",
-              "premise_identifier": "Barksdale towers",
-            },
-            "handling_tags": [
-              "fragile",
-              "fragile"
-            ],
-            "dimensions": {
-              "width": -1,
-              "height": 4,
-              "depth": 1000
-            }
-          }
-          `}
-        onSave={(val) => console.log('jsonPut', val)}
+        value={jsonString}
+        onSave={(val) => updateTrigger({ value: val })}
         editorPath="TRACKING_CONFIG"
       />
     </Grid>

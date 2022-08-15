@@ -1,4 +1,3 @@
-import * as monaco from 'monaco-editor';
 import { editor as editorApi } from 'monaco-editor/esm/vs/editor/editor.api';
 
 // taken from https://github.com/brijeshb42/monaco-themes/blob/master/themes/Cobalt.json

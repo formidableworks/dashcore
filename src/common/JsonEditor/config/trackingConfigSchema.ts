@@ -5,12 +5,23 @@ export const trackingConfigJsonSchema: JSONSchema7 = {
   description: 'All informational data required to track a delivery.',
   type: 'object',
   properties: {
-    customer_id: { type: 'string', description: 'An identifier unique to each customer.' },
-    service_tier: {
+    trackingId: { description: 'An identifier unique to each unit.', type: 'number' },
+    trackingTech: {
+      description: 'Active tracking technology applied to unit.',
       type: 'string',
-      enum: ['next day', 'same day', 'priority one'],
-      description: 'Level of Dashcore delivery service.',
+      enum: ['gps', 'beacon'],
+    },
+    beaconId: {
+      description: 'The beacons lookup id.',
+      type: 'number',
     },
   },
-  required: ['customer_id', 'service_tier'],
+  if: {
+    properties: {
+      trackingTech: { const: 'beacon' },
+    },
+    required: ['trackingTech'],
+  },
+  then: { required: ['beaconId'] },
+  required: ['trackingId'],
 };

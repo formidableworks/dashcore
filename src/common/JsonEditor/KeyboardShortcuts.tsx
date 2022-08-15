@@ -1,3 +1,4 @@
+import KeyboardIcon from '@mui/icons-material/Keyboard';
 import {
   Box,
   Button,
@@ -6,11 +7,9 @@ import {
   List,
   ListItem,
   ListItemText,
-  ListSubheader,
   Popover,
   Typography,
 } from '@mui/material';
-import KeyboardIcon from '@mui/icons-material/Keyboard';
 import { useState } from 'react';
 
 export function KeyboardShortcuts(): JSX.Element {

@@ -1,4 +1,4 @@
-import { Chip, Typography, Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { Variant } from '@mui/material/styles/createTypography';
 
 interface Props {

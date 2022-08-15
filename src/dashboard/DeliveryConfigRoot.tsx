@@ -1,7 +1,17 @@
 import { Grid, Typography } from '@mui/material';
 import { JsonEditorRoot } from '../common/JsonEditor/JsonEditorRoot';
+import {
+  useGetDeliveryConfigQuery,
+  useUpdateDeliveryConfigMutation,
+} from '../redux/api/deliveryConfigApi';
 
 export function DeliveryConfigRoot(): JSX.Element {
+  const { jsonString } = useGetDeliveryConfigQuery(undefined, {
+    selectFromResult: (result) => ({ jsonString: result.data?.value, ...result }),
+  });
+
+  const [updateTrigger] = useUpdateDeliveryConfigMutation();
+
   return (
     <Grid container>
       <Grid item>
@@ -9,25 +19,8 @@ export function DeliveryConfigRoot(): JSX.Element {
       </Grid>
       {/* NOTE: JsonEditorRoot will emit multiple grid items. */}
       <JsonEditorRoot
-        value={`
-          {
-            "signature_required": "yes indeed", "customer_id": "1235339", "service_tier": "invalid enum val",
-            "address": {
-              "addressee": "Stringer Bell",
-              "premise_identifier": "Barksdale towers",
-            },
-            "handling_tags": [
-              "fragile",
-              "fragile"
-            ],
-            "dimensions": {
-              "width": -1,
-              "height": 4,
-              "depth": 1000
-            }
-          }
-          `}
-        onSave={(val) => console.log('jsonPut', val)}
+        value={jsonString}
+        onSave={(val) => updateTrigger({ value: val })}
         editorPath="DELIVERY_CONFIG"
       />
     </Grid>
